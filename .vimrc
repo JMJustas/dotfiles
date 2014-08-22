@@ -32,6 +32,11 @@ set background=dark
 let g:solarized_termcolors=16
 colorscheme solarized
 
+"ctrlp otions
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+
 "Turn on line numbering
 set number
 
