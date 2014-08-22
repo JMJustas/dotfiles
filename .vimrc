@@ -8,6 +8,7 @@ call vundle#begin()
 Plugin 'gmarik/vundle'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'sjl/gundo.vim'
 Plugin 'Lokaltog/powerline'
 Plugin 'scrooloose/syntastic'
 Plugin 'fholgado/minibufexpl.vim'
