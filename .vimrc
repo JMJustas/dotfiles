@@ -16,6 +16,8 @@ Plugin 'kien/ctrlp.vim'
 call vundle#end()
 "Add powerline to path
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+"powerline should be visible allways
+set laststatus=2
 filetype plugin indent on
 
 syntax on
