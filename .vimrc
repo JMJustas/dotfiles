@@ -39,14 +39,13 @@ let g:ctrlp_working_path_mode = 'ra'
 
 "Turn on line numbering
 set number
-
-au FileType html,xhtml setl ofu=htmlcomplete#CompleteTags
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 "auto-save when switching buffers
-:set autowrite
+set autowrite
 
 "Moving swap and backup files to different dir
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
 
-
+au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim 
