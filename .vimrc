@@ -7,7 +7,6 @@ call vundle#begin()
 "Installed plugins
 Plugin 'gmarik/vundle'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'davidhalter/jedi-vim'
 Plugin 'sjl/gundo.vim'
 Plugin 'Lokaltog/powerline'
 Plugin 'scrooloose/syntastic'
@@ -15,6 +14,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'kien/ctrlp.vim'
+Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 "Add powerline to path
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
