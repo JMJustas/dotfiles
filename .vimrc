@@ -11,6 +11,7 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'sjl/gundo.vim'
 Plugin 'Lokaltog/powerline'
 Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'kien/ctrlp.vim'
@@ -49,3 +50,5 @@ set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
 
 au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim 
+
+map <F2> :NERDTreeToggle<CR>
