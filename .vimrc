@@ -42,6 +42,7 @@ set splitright
 set hlsearch
 set autowrite
 set autoread
+set autoindent
 set tabstop=2 shiftwidth=2 expandtab
 
 " Use new regexp engine based on https://jameschambers.co.uk/vim-typescript-slow
