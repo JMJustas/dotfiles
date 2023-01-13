@@ -1,88 +1,129 @@
 set nocompatible
-"Bundle plugin installer configuration
+set noshowmode
 filetype off
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
-"Installed plugins
-Plugin 'VundleVim/Vundle.Vim'
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'sjl/gundo.vim'
-Plugin 'Lokaltog/powerline'
-Plugin 'scrooloose/nerdtree'
-Plugin 'fholgado/minibufexpl.vim'
+Plugin 'joshdick/onedark.vim'
+Plugin 'vim-airline/vim-airline'
+
+" Git
 Plugin 'tpope/vim-fugitive'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'Valloric/MatchTagAlways'
-" autocompletion
-Plugin 'scrooloose/syntastic'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'Valloric/YouCompleteMe'
-" markdown
-Plugin 'godlygeek/tabular'
-Plugin 'vim-scripts/taglist.vim'
-Plugin 'plasticboy/vim-markdown'
-" javascript
+Plugin 'airblade/vim-gitgutter'
+" FS management
+Plugin 'preservim/nerdtree'
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plugin 'junegunn/fzf.vim'
+Plugin 'mileszs/ack.vim'
+
+" Code autocomplete
+Plugin 'neoclide/coc.nvim'
+Plugin 'preservim/nerdcommenter'
+
+" Ruby
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'vim-utils/vim-ruby-fold'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-rails'
+
+" JS/TS
 Plugin 'pangloss/vim-javascript'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'Raimondi/delimitMate'
-Plugin 'marijnh/tern_for_vim'
-
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'yegappan/greplace'
-
+Plugin 'leafgarland/typescript-vim'
+Plugin 'vim-graphql'
 
 call vundle#end()
-"Add powerline to path
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-"powerline should be visible allways
-set laststatus=2
-filetype plugin indent on
 
-syntax on
-set hlsearch
+filetype plugin on
+
+set relativenumber
 set splitright
-"tab is equal 4 spaces
-set tabstop=4
-set shiftwidth=4
-autocmd FileType python set sts=4
-"solarized color scheme settings
-set t_Co=256
-set background=dark
-let g:solarized_termcolors=256
-colorscheme solarized
-
-"editorconfig plugin options
-let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
-"ctrlp otions
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
-if exists("g:ctrl_user_command")
-	unlet g:ctrlp_user_command
-endif
-set wildignore+=*/node_modules/*
-set wildignore+=*/build/*
-set wildignore+=*/logs/*
-" JAVASCRIPT
- autocmd FileType javascript let b:syntastic_checkers = ['eslint'] 
-
-
-"Turn on line numbering
-set number
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-"auto-save when switching buffers
+set hlsearch
 set autowrite
+set autoread
+set tabstop=2 shiftwidth=2 expandtab
 
-"Moving swap and backup files to different dir
-set backupdir=~/.vim/backup//
-set directory=~/.vim/swap//
-set undodir=~/.vim/undo//
+" Use new regexp engine based on https://jameschambers.co.uk/vim-typescript-slow
+set re=0
 
-au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim 
+setlocal foldmethod=syntax
 
-imap <C-c> <CR><Esc>O
-map <F2> :NERDTreeToggle<CR>
-map <F9> :w<CR>:!python  %<CR>
-map bp Oimport pdb; pdb.set_trace()<ESC>
+
+
+let g:solarized_visibility = "high"
+let g:solarized_contrast = "high"
+let g:solarized_termcolors = 16
+set background=dark
+colorscheme onedark
+
+" git gutter side column color
+" highlight! link SignColumn LineNr
+highlight SignColumn guibg=#ff0000 ctermbg=3
+
+" Autoclose braces/brackets
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
+
+
+let mapleader = ","
+
+let NERDTreeShowHidden=1
+nnoremap <F2> :NERDTreeToggle<CR>
+
+" source .vimrc automatically on save like magic
+au BufWritePost .vimrc so $MYVIMRC
+
+" open vimrc in split with leaderev
+:nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+
+" Git grep for the word under the cursor
+:nnoremap <leader>G :Ggrep <C-r><C-w><cr>
+:nnoremap <leader>GB :GBrowse <cr>
+
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red
+
+let g:airline#extensions#tabline#enabled = 1
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Enable autocompletion popup
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice.
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" coc extensions are installed in ~/.config/coc/extensions
+let g:coc_global_extensions = ['coc-solargraph']
+let g:coc_global_extensions = ['coc-tsserver']
+let g:coc_global_extensions = ['coc-html']
+let g:coc_global_extensions = ['coc-json']
+let g:coc_global_extensions = ['coc-go']
+let g:coc_global_extensions = ['coc-markdownlint']
+let g:coc_global_extensions = ['coc-sh']
+
+
+" NERDCommenter
+" Create default mappings
+let g:NERDCreateDefaultMappings = 1
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Enable syntax highlighting
+syntax on
+" Git commit spellcheck, width
+autocmd Filetype gitcommit setlocal spell textwidth=72
