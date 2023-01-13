@@ -21,6 +21,9 @@ Plugin 'mileszs/ack.vim'
 " Code autocomplete
 Plugin 'neoclide/coc.nvim'
 Plugin 'preservim/nerdcommenter'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'wellle/targets.vim'
+Plugin 'AndrewRadev/splitjoin.vim'
 
 " Ruby
 Plugin 'vim-ruby/vim-ruby'
@@ -31,7 +34,7 @@ Plugin 'tpope/vim-rails'
 " JS/TS
 Plugin 'pangloss/vim-javascript'
 Plugin 'leafgarland/typescript-vim'
-Plugin 'vim-graphql'
+Plugin 'jparise/vim-graphql'
 
 call vundle#end()
 
@@ -61,14 +64,6 @@ colorscheme onedark
 " git gutter side column color
 " highlight! link SignColumn LineNr
 highlight SignColumn guibg=#ff0000 ctermbg=3
-
-" Autoclose braces/brackets
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
-inoremap {<CR> {<CR>}<ESC>O
-inoremap {;<CR> {<CR>};<ESC>O
-
 
 let mapleader = ","
 
