@@ -74,6 +74,9 @@ highlight SignColumn guibg=#ff0000 ctermbg=3
 
 let mapleader = ","
 
+" Search for a word under cursor using Ag
+nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
+
 let NERDTreeShowHidden=1
 nnoremap <F2> :NERDTreeToggle<CR>
 
