@@ -85,8 +85,6 @@ au BufWritePost .vimrc so $MYVIMRC
 
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red
 
-let g:airline#extensions#tabline#enabled = 1
-
 function! Check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
