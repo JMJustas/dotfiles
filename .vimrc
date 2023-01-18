@@ -8,6 +8,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'joshdick/onedark.vim'
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-test/vim-test'
 
 " Git
 Plugin 'tpope/vim-fugitive'
@@ -166,7 +167,13 @@ nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document
 nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
 
-
+" vim-test
+let test#strategy = "vimterminal"
+nmap <silent> <leader>tt :TestNearest<CR>
+nmap <silent> <leader>tT :TestFile<CR>
+nmap <silent> <leader>ta :TestSuite<CR>
+nmap <silent> <leader>tl :TestLast<CR>
+nmap <silent> <leader>tg :TestVisit<CR>
 
 " NERDCommenter
 " Create default mappings
