@@ -30,6 +30,7 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'vim-utils/vim-ruby-fold'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-rails'
+Plugin 'ngmy/vim-rubocop'
 
 " JS/TS
 Plugin 'pangloss/vim-javascript'
