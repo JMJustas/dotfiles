@@ -17,7 +17,6 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'preservim/nerdtree'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
-Plugin 'mileszs/ack.vim'
 
 " Code autocomplete
 Plugin 'neoclide/coc.nvim'
