@@ -13,6 +13,8 @@ Plugin 'vim-test/vim-test'
 " Git
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'idanarye/vim-merginal'
+
 " FS management
 Plugin 'preservim/nerdtree'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
