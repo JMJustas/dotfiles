@@ -177,6 +177,10 @@ nmap <silent> <leader>ta :TestSuite<CR>
 nmap <silent> <leader>tl :TestLast<CR>
 nmap <silent> <leader>tg :TestVisit<CR>
 
+" VCS chortcuts
+nmap  <leader>bb :Merginal<CR>
+nmap  <leader>gg :Git<CR>
+
 " NERDCommenter
 " Create default mappings
 let g:NERDCreateDefaultMappings = 1
