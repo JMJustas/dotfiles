@@ -85,6 +85,7 @@ nnoremap <F2> :NERDTreeToggle<CR>
 
 " Ctrl+P to open files
 nnoremap <C-p> :GFiles <CR>
+nnoremap <C-f> :Files <CR>
 
 " source .vimrc automatically on save like magic
 au BufWritePost .vimrc so $MYVIMRC
