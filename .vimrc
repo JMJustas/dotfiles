@@ -17,6 +17,9 @@ Plugin 'idanarye/vim-merginal'
 
 " FS management
 Plugin 'preservim/nerdtree'
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'ryanoasis/nerd-fonts'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 
