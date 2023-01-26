@@ -196,3 +196,9 @@ let g:NERDSpaceDelims = 1
 syntax on
 " Git commit spellcheck, width
 autocmd Filetype gitcommit setlocal spell textwidth=72
+
+" Tab navigation
+let g:airline#extensions#tabline#enabled = 1
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
+
