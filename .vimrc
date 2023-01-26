@@ -202,3 +202,6 @@ let g:airline#extensions#tabline#enabled = 1
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 
+let g:vimrubocop_keymap = 0
+nmap <Leader>r :RuboCop<CR>
+
