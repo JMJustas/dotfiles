@@ -204,4 +204,5 @@ nnoremap <C-Right> :tabnext<CR>
 
 let g:vimrubocop_keymap = 0
 nmap <Leader>r :RuboCop<CR>
+nmap <Leader>dif :Gvdiffsplit<CR>
 
